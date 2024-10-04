@@ -1,4 +1,4 @@
-#### Rock Paper & Scissors Game ####
+## Rock Paper & Scissors Game ##
 
 A graphical game made using the Python Tkinter library.
 
