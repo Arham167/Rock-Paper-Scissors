@@ -4,11 +4,9 @@ import random
 
 # Initializing the main windows and getting info about the screen height and width
 root = Tk()
-root_width = root.winfo_screenwidth()
-root_height = root.winfo_screenheight()
+width = root.winfo_screenwidth()
+height = root.winfo_screenheight()
 new = Tk()
-new_width = new.winfo_screenwidth()
-new_height = new.winfo_screenheight()
 
 # List of all possible options
 opt = ["Rock", "Paper", "Scissors"]
@@ -16,7 +14,7 @@ opt = ["Rock", "Paper", "Scissors"]
 def main():
     # Starting the main window
     new.withdraw()
-    root.geometry("%dx%d" % (root_width, root_height))
+    root.geometry("%dx%d" % (width, height))
     root.title("Rock, Paper, Scissors")
     root.state("zoomed")
 
@@ -25,7 +23,7 @@ def main():
     closeframe.place(x = 1, y = 1)
     closebutton = Button(closeframe,
                          text = "X Close",
-                         font = ("Arial Greek", int(root_width/80)),
+                         font = ("Arial Greek", int(width/80)),
                          foreground = "red4",
                          cursor = "mouse",
                          command= root.quit)
@@ -34,35 +32,35 @@ def main():
     # Starting text
     lb1 = Label(root,
                 text= "Rock, Paper Or Scissors?",
-                font = ("Century", int(root_width/20)),
+                font = ("Century", int(width/20)),
                 foreground = "lightskyblue4")
-    lb1.place(x = int(root_width/8), y = int(root_height/50))
+    lb1.place(x = int(width/8), y = int(height/50))
 
     # 3 buttons
     bt1 = Button(root,
                  text = "Rock",
-                 font = ("Constantia", int(root_width/60)),
+                 font = ("Constantia", int(width/60)),
                  foreground = "royalblue4",
-                 width = int(root_width/70),
+                 width = int(width/70),
                  cursor = "mouse",
                  command = rock)
-    bt1.place(x = int(root_width/25), y = int(root_height/1.5))
+    bt1.place(x = int(width/25), y = int(height/1.5))
     bt2 = Button(root,
                  text = "Paper",
-                 font = ("Constantia", int(root_width/60)),
+                 font = ("Constantia", int(width/60)),
                  foreground = "royalblue4",
-                 width = int(root_width/70),
+                 width = int(width/70),
                  cursor = "mouse",
                  command = paper)
-    bt2.place(x = int(root_width/2.6), y = int(root_height/1.5))
+    bt2.place(x = int(width/2.6), y = int(height/1.5))
     bt3 = Button(root,
                  text = "Scissors",
-                 font = ("Constantia", int(root_width/60)),
+                 font = ("Constantia", int(width/60)),
                  foreground = "royalblue4",
-                 width = int(root_width/70),
+                 width = int(width/70),
                  cursor = "mouse",
                  command = scissors)
-    bt3.place(x = int(root_width/1.4), y = int(root_height/1.5))
+    bt3.place(x = int(width/1.4), y = int(height/1.5))
 
     root.mainloop()
 
@@ -75,7 +73,7 @@ def rock():
     # Close last window and open new one
     root.withdraw()
     new = Tk()
-    new.geometry("%dx%d" % (root_width, root_height))
+    new.geometry("%dx%d" % (width, height))
     new.title("Rock, Paper, Scissors")
     new.state("zoomed")
 
@@ -83,51 +81,51 @@ def rock():
 
     # Top text stating who chose what
     textframe = Frame(new)
-    textframe.place(x = int(root_width/10), y = int(root_height/15))
+    textframe.place(x = int(width/10), y = int(height/15))
     lb1 = Label(textframe,
                 text= "You Chose Rock, Computer Chose %s" %comp,
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "lightskyblue4")
     lb1.pack()
 
     # Function call to determine winner and print
     win = winner("Rock", comp)
     textframe2 = Frame(new)
-    textframe2.place(x = int(root_width/2.4), y = int(root_height/4))
+    textframe2.place(x = int(width/2.4), y = int(height/4))
     lb2 = Label(textframe2,
                 text = "%s" %win,
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "springgreen4")
     lb2.pack(expand = True)
 
     # Play again or no
     lb3 = Label(new,
                 text = "Do You Want To Play Again?",
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "lightskyblue4")
-    lb3.place(x = int(root_width/5), y = int(root_height/2))
+    lb3.place(x = int(width/5), y = int(height/2))
     bt1 = Button(new,
                 text = "Yes",
-                font = ("Arial Greek", int(root_width/60)),
-                width = int(root_width/70),
+                font = ("Arial Greek", int(width/60)),
+                width = int(width/70),
                 foreground = "ivory4",
                 cursor = "mouse",
                 command= partial(back, new, root))
-    bt1.place(x = int(root_width/5), y = int(root_height/1.5)) 
+    bt1.place(x = int(width/5), y = int(height/1.5)) 
     bt2 = Button(new,
                 text = "No",
-                font = ("Arial Greek", int(root_width/60)),
-                width = int(root_width/70),
+                font = ("Arial Greek", int(width/60)),
+                width = int(width/70),
                 foreground = "ivory4",
                 cursor = "mouse",
                 command= new.quit)
-    bt2.place(x = int(root_width/1.8), y = int(root_height/1.5)) 
+    bt2.place(x = int(width/1.8), y = int(height/1.5)) 
 
 def paper():
     # Close last window and open new one
     root.withdraw()
     new = Tk()
-    new.geometry("%dx%d" % (root_width, root_height))
+    new.geometry("%dx%d" % (width, height))
     new.title("Rock, Paper, Scissors")
     new.state("zoomed")
 
@@ -135,51 +133,51 @@ def paper():
 
     # Top text stating who chose what
     textframe = Frame(new)
-    textframe.place(x = int(root_width/10), y = int(root_height/15))
+    textframe.place(x = int(width/10), y = int(height/15))
     lb1 = Label(textframe,
                 text= "You Chose Paper, Computer Chose %s" %comp,
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "lightskyblue4")
     lb1.pack()
 
     # Function call to determine winner and print
     win = winner("Paper", comp)
     textframe2 = Frame(new)
-    textframe2.place(x = int(root_width/2.4), y = int(root_height/4))
+    textframe2.place(x = int(width/2.4), y = int(height/4))
     lb2 = Label(textframe2,
                 text = "%s" %win,
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "springgreen4")
     lb2.pack(expand = True)
 
     # Play again or no
     lb3 = Label(new,
                 text = "Do You Want To Play Again?",
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "lightskyblue4")
-    lb3.place(x = int(root_width/5), y = int(root_height/2))
+    lb3.place(x = int(width/5), y = int(height/2))
     bt1 = Button(new,
                 text = "Yes",
-                font = ("Arial Greek", int(root_width/60)),
-                width = int(root_width/70),
+                font = ("Arial Greek", int(width/60)),
+                width = int(width/70),
                 foreground = "ivory4",
                 cursor = "mouse",
                 command= partial(back, new, root))
-    bt1.place(x = int(root_width/5), y = int(root_height/1.5)) 
+    bt1.place(x = int(width/5), y = int(height/1.5)) 
     bt2 = Button(new,
                 text = "No",
-                font = ("Arial Greek", int(root_width/60)),
-                width = int(root_width/70),
+                font = ("Arial Greek", int(width/60)),
+                width = int(width/70),
                 foreground = "ivory4",
                 cursor = "mouse",
                 command= new.quit)
-    bt2.place(x = int(root_width/1.8), y = int(root_height/1.5)) 
+    bt2.place(x = int(width/1.8), y = int(height/1.5)) 
 
 def scissors():
     # Close last window and open new one
     root.withdraw()
     new = Tk()
-    new.geometry("%dx%d" % (root_width, root_height))
+    new.geometry("%dx%d" % (width, height))
     new.title("Rock, Paper, Scissors")
     new.state("zoomed")
 
@@ -187,44 +185,44 @@ def scissors():
 
     # Top text stating who chose what
     textframe = Frame(new)
-    textframe.place(x = int(root_width/20), y = int(root_height/15))
+    textframe.place(x = int(width/20), y = int(height/15))
     lb1 = Label(textframe,
                 text= "You Chose Scissors, Computer Chose %s" %comp,
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "lightskyblue4")
     lb1.pack()
 
     # Function call to determine winner and print
     win = winner("Scissors", comp)
     textframe2 = Frame(new)
-    textframe2.place(x = int(root_width/2.4), y = int(root_height/4))
+    textframe2.place(x = int(width/2.4), y = int(height/4))
     lb2 = Label(textframe2,
                 text = "%s" %win,
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "springgreen4")
     lb2.pack(expand = True)
     # Play again or no
     lb3 = Label(new,
                 text = "Do You Want To Play Again?",
-                font = ("Century", int(root_width/30)),
+                font = ("Century", int(width/30)),
                 foreground = "lightskyblue4")
-    lb3.place(x = int(root_width/5), y = int(root_height/2))
+    lb3.place(x = int(width/5), y = int(height/2))
     bt1 = Button(new,
                 text = "Yes",
-                font = ("Arial Greek", int(root_width/60)),
-                width = int(root_width/70),
+                font = ("Arial Greek", int(width/60)),
+                width = int(width/70),
                 foreground = "ivory4",
                 cursor = "mouse",
                 command= partial(back, new, root))
-    bt1.place(x = int(root_width/5), y = int(root_height/1.5)) 
+    bt1.place(x = int(width/5), y = int(height/1.5)) 
     bt2 = Button(new,
                 text = "No",
-                font = ("Arial Greek", int(root_width/60)),
-                width = int(root_width/70),
+                font = ("Arial Greek", int(width/60)),
+                width = int(width/70),
                 foreground = "ivory4",
                 cursor = "mouse",
                 command= new.quit)
-    bt2.place(x = int(root_width/1.8), y = int(root_height/1.5)) 
+    bt2.place(x = int(width/1.8), y = int(height/1.5)) 
     
 def winner(user, comp):
     if user == comp:
